@@ -2,12 +2,14 @@
   /* Background colors */
   --clr-bg-neutral-grey-beige: #edded5;
   --clr-bg-pure-black: #000000;
+  --clr-bg-zinc:#f4f4f5;
 
   /* Border colors */
   --clr-border-zinc: #f5f4f4;
 
   /* Text colors */
   --clr-text-pure-white: #ffffff;
+  --clr-text-zinc: #52525c;
 }
 
 /* ------------Universal boilerplate------ */
@@ -53,10 +55,19 @@ h1 {
   display: block;
 }
 
+h4{
+  all: unset;
+  display:block;
+}
 ul {
   list-style: none; /* Removes bullets or numbers */
   padding: 0; /* Removes default left indentation */
   margin: 0; /* Removes default top and bottom spacing */
+}
+
+a{
+  all: unset;
+  cursor: pointer;
 }
 
 /* ------------Navigation Bar-------------------- */
@@ -237,6 +248,31 @@ main {
 .services-card-container{
   display: flex;
   height: 70vh;
-  border: solid;
+  /* border: solid; */
+  justify-content: space-between;
+}
+
+.services-card{
+  flex-basis: 23%;
+  /* border: solid; */
+  height: 80%;
+  padding: 70px 50px 0 50px ;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: var(--clr-bg-zinc);
+}
+
+.services-card h4{
+  font-size: 2vw;
+}
+
+.services-card p{
+  color: var(--clr-text-zinc);
+  font-size: larger;
+}
+
+.services-card a{
+  text-decoration: underline;
 }
 
