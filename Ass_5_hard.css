@@ -1,0 +1,242 @@
+:root {
+  /* Background colors */
+  --clr-bg-neutral-grey-beige: #edded5;
+  --clr-bg-pure-black: #000000;
+
+  /* Border colors */
+  --clr-border-zinc: #f5f4f4;
+
+  /* Text colors */
+  --clr-text-pure-white: #ffffff;
+}
+
+/* ------------Universal boilerplate------ */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden; /* Recommended backup to catch rogue stray elements */
+}
+
+body {
+  /* border: solid; */
+  padding: 0 100px;
+}
+
+/* ------------General Default Settings------------ */
+button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none; /* See accessibility note below */
+}
+
+button:focus-visible {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+h1 {
+  all: unset;
+  display: block;
+}
+
+ul {
+  list-style: none; /* Removes bullets or numbers */
+  padding: 0; /* Removes default left indentation */
+  margin: 0; /* Removes default top and bottom spacing */
+}
+
+/* ------------Navigation Bar-------------------- */
+nav {
+  /* border: solid; */
+  font-family: serif;
+  width: 100%;
+  height: 10%;
+  margin-top: 20px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  border-bottom: solid 1px var(--clr-border-zinc);
+}
+
+.left-logo {
+  width: 90%;
+  height: 100%;
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  gap: 3%;
+}
+
+.left-logo img {
+  width: 13%;
+}
+
+.left-logo button {
+  height: 30px;
+  width: 110px;
+  background-color: var(--clr-bg-neutral-grey-beige);
+  border-radius: 20px;
+}
+
+.right-navLinks {
+  flex-basis: 50%;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 15%;
+}
+
+.right-navLinks ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.right-navLinks ul button {
+  border: solid 1px;
+  height: 40px;
+  width: 100px;
+  border-radius: 30px;
+}
+
+.right-navLinks ul li:nth-last-child(2) span {
+  border-radius: 50%;
+  background-color: var(--clr-bg-neutral-grey-beige);
+  padding: 0 4px;
+}
+
+/* -----------Main content of the website------------------- */
+main {
+  /* border: solid; */
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------Hero Section HomePage--------------------- */
+.hero {
+  /* border: solid; */
+  font-family: sans-serif;
+  width: 100%;
+  height: calc(90% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1%;
+}
+
+.hero .hero-title h1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title h1 span:nth-child(1) {
+  font-size: 6.5vw;
+  font-weight: bold;
+}
+.hero-title h1 span:nth-child(2) {
+  font-size: 5.5vw;
+}
+
+.hero .hero-description {
+  line-height: 1.5;
+  font-family: serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero button {
+  border: solid 1px;
+  height: 60px;
+  width: 150px;
+  border-radius: 40px;
+  background-color: var(--clr-bg-pure-black);
+  color: var(--clr-text-pure-white);
+  margin-top: 32px;
+}
+
+/* ----------------Logo Scroll Animation Section------------------ */
+
+@keyframes scroll {
+  0% {
+    transform: translate(0px);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll {
+  /* border: solid; */
+  width: 100%;
+  height: 20vh;
+  margin-top: 20px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  /* FIX: Forces the browser to optimize rendering for smooth animations */
+  will-change: transform;
+}
+
+.scroll .logo-container {
+  /* border: solid; */
+  height: 100%;
+
+  /* FIX: Using vw instead of % prevents fractional pixel rounding bugs */
+  min-width: 105%;
+  display: flex;
+  align-items: center;
+  gap: 120px;
+
+  
+
+  animation-name: scroll;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.logo-container img {
+  height: 5vh;
+  /* margin: 50px 0px 50px 120px; */
+}
+
+/* 
+
+* 🔍 The Core Issues Causing the Flicker
+
+** Flexbox overrides the element width: When you turn on display: flex on the parent container (.scroll), it forces its direct children (.logo-container) to follow flex layouts. Flex items automatically shrink to fit the screen container by default, overriding your explicit width: 110%.
+
+** The "Jump" effect: Because the item gets compressed by flexbox, the browser miscalculates the final layout footprint during the @keyframes scroll movement. When the animation loops or hits a keyframe boundary, the container snaps instantly between its flex-compressed width and its true element width, creating a visual flicker.
+
+** White-space conflict: The property white-space: nowrap; only forces inline elements to stay on one line. Flex items ignore white-space: nowrap entirely because they follow flex-wrap rules instead.
+
+
+*/
+
+.services-card-container{
+  display: flex;
+  height: 70vh;
+  border: solid;
+}
+
