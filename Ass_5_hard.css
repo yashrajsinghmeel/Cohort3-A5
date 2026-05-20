@@ -3,6 +3,12 @@
   --clr-bg-neutral-grey-beige: #edded5;
   --clr-bg-pure-black: #000000;
   --clr-bg-zinc:#f4f4f5;
+  --clr-bg-mint-cream:#f1f6f5;
+  --clr-bg-white-smoke:#f8f8f8;
+  --clr-bg-light-slate:#f1f5f9;
+  --clr-bg-almond-milk-warm-off-white:#f8ede3;
+  --clr-bg-comforting-yellow-white:#fffae7;
+
 
   /* Border colors */
   --clr-border-zinc: #f5f4f4;
@@ -27,7 +33,7 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  /* height: 100%; It will cause the page to scroll up everytime you refresh */
   min-height: 100dvh;
   overflow-x: hidden; /* Recommended backup to catch rogue stray elements */
 }
@@ -87,7 +93,7 @@ nav {
   /* border: solid; */
   font-family: serif;
   width: 100%;
-  height: 10%;
+  height: 10vh;
   margin-top: 20px;
   display: flex;
   /* justify-content: space-between; */
@@ -157,7 +163,7 @@ main {
   /* border: solid; */
   font-family: sans-serif;
   width: 100%;
-  height: calc(90% - 20px);
+  height: calc(90vh - 20px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -290,11 +296,11 @@ main {
 
 /* Our work header */
 
-.our-work-header{
+.section-header{
   height: 6vh;
   /* border: solid; */
   border-bottom: solid 1px var(--clr-border-zinc);
-  font-size: small;
+  font-size: medium;
   font-weight: lighter;
   color: var(--clr-text-zinc);
 }
@@ -304,6 +310,8 @@ main {
 .selected-work{
   /* border: solid; */
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 150px;
   height: max-content;
   display: flex;
   flex-direction: column;
@@ -342,6 +350,7 @@ main {
 }
 
 .selected-work-card{
+  margin-top: 30px;
   width: 49%;
   min-height: 80vh;
   /* border: solid; */
@@ -389,4 +398,119 @@ align-items: center;
 .description-selected-work-card button:hover{
   background-color: var(--clr-bg-pure-black);
   color: var(--clr-text-pure-white);
+}
+
+/* -------Values-Section------------ */
+
+.values-section{
+  margin-top: 80px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: repeat(4,23%);
+  grid-template-rows: repeat(2,50vh);
+  grid-template-areas: "card1 card2 card3 ."
+  ". card4 card5 card6";
+  justify-content: space-between;
+  row-gap: 45px;
+}
+
+.display-values-card{
+  padding: 50px;
+  /* border: solid; */
+  height: 100%;
+  width: 100%;
+}
+
+.card-styling{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-styling p:nth-child(1){
+  font-size: small;
+}
+.card-styling p:nth-child(2){
+  font-size: x-large;
+}
+.display-values-card:nth-child(1){
+ grid-area: card1;
+ background-color: var(--clr-bg-light-slate);
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ gap: 45px;
+
+}
+
+.display-values-card:nth-child(1) p{
+font-size: x-large;
+}
+.display-values-card:nth-child(1) button{
+  margin-top: 70px;
+border: solid 1px;
+min-height: 50px;
+padding: 0 25px;
+border-radius: var(--border-radius-small);
+background-color: var(--clr-bg-pure-black);
+color: var(--clr-text-pure-white);
+}
+
+.display-values-card:nth-child(2){
+ grid-area: card2;
+ background-color: var(--clr-bg-mint-cream);
+}
+.display-values-card:nth-child(3){
+ grid-area: card3;
+ background-color: var(--clr-bg-white-smoke);
+}
+.display-values-card:nth-child(4){
+ grid-area: card4;
+ background-color: var(--clr-bg-white-smoke);
+}
+.display-values-card:nth-child(5){
+ grid-area: card5;
+ background-color: var(--clr-bg-almond-milk-warm-off-white);
+}
+.display-values-card:nth-child(6){
+ grid-area: card6;
+ background-color: var(--clr-bg-comforting-yellow-white);
+}
+
+/* ------------Flex-text section------------------ */
+
+.flex-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  /* border: solid; */
+  width: 100%;
+  height: 100vh;
+}
+
+.flex-text h2{
+  font-size: 3.5vw;
+}
+
+.flex-text .para-text{
+  margin-top: 100px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  width: 50%;
+  height: 50vh;
+  font-size: large;
+  color: var(--clr-text-zinc);
+  line-height: 1.5;
+  /* border: solid; */
+}
+
+.para-text p:nth-child(1){
+  /* border: solid; */
+  min-width: 49% ;
+}
+.para-text p:nth-child(2){
+  /* border: solid; */
+  min-width: 49% ;
 }
