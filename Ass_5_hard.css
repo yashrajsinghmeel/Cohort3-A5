@@ -514,3 +514,117 @@ color: var(--clr-text-pure-white);
   /* border: solid; */
   min-width: 49% ;
 }
+
+/* --------Team -- Section----------- */
+
+.team{
+  margin-top: 10px;
+  /* border: solid; */
+  width: 100%;
+  height: 100vh;
+}
+.team header{
+  /* border: solid; */
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team header h3{
+font-size: 3.2vw;
+}
+
+.team header button{
+  border: solid 1px;
+  height: 50px;
+  padding: 0 25px;
+  border-radius: var(--border-radius-small);
+}
+
+.team header button:hover{
+  background-color: var(--clr-bg-pure-black);
+  color: var(--clr-text-pure-white);
+}
+.team-card-container{
+  height: 65%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-card{
+  /* border: solid; */
+  flex-basis: 23%;
+}
+
+.team-img{
+  position: relative;
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+}
+
+.team-img .social-media-links{
+  display: none;
+  border: solid;
+  position: absolute;
+  width: 100%;
+}
+
+.team-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-card:nth-child(1){
+ background-color: var(--clr-bg-mint-cream);
+ padding-left: 60px;
+ padding-top: 60px;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ gap: 30px;
+}
+
+.team-card:nth-child(1) h4{
+  font-size: xx-large;
+}
+
+.team-card:nth-child(1) p{
+  color: var(--clr-text-zinc);
+}
+
+.team-card:nth-child(1) button{
+  background-color: var(--clr-bg-pure-black);
+  color: var(--clr-text-pure-white);
+  min-height: 50px;
+  padding: 0 25px;
+  border-radius: var(--border-radius-small);
+  margin-top: 50px;
+}
+
+.team-card .team-desc {
+  /* border: solid; */
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-desc span{
+  font-size: larger;
+}
+.team-desc button{
+  border: solid 1px;
+  font-size: small;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--border-radius-small);
+}
+
+.team-desc button:hover{
+  background-color: var(--clr-bg-pure-black);
+  color: var(--clr-text-pure-white);
+}
